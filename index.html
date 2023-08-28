@@ -616,6 +616,7 @@
 
     <script type="text/javascript">
         let mainMenu = document.querySelector('.main-menu');
+        let headerMenu = document.querySelector('.header__menu');
         let dropdowns = document.querySelectorAll('.dropdown');
         let searchBar = document.querySelector('.search__bar-wrapper');
         let searchBtn = document.querySelector('.btn-search');
@@ -650,6 +651,17 @@
         searchBtnClose.addEventListener('click', ()=>{
             searchBar.classList.remove('active')
         })
+
+        window.addEventListener('scroll', ()=>{
+            let x = window.scrollY;
+            console.log(x)
+            if(x > 20){
+                headerMenu.classList.add('fixed')
+            }else{
+                headerMenu.classList.remove('fixed')
+            }
+        })
+
     </script>
 </body>
 </html>
