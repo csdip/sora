@@ -624,7 +624,7 @@
         let navBtn = document.querySelector('.btn-nav');
         let check = 0;
 
-        navBtn.addEventListener('click', ()=>{
+        navBtn.addEventListener('click', (e)=>{
             if(check == 0){
                 mainMenu.classList.add('active')
                 mainMenu.classList.add('fadeIn')
@@ -647,15 +647,19 @@
         searchBtn.addEventListener('click', ()=>{
             console.log('clicked')
             searchBar.classList.add('active')
+            searchBar.classList.add('fadeInX')
+            searchBar.classList.remove('fadeOutX')
         })
         searchBtnClose.addEventListener('click', ()=>{
             searchBar.classList.remove('active')
+            searchBar.classList.add('fadeOutX')
+            searchBar.classList.remove('fadeInX')
         })
 
         window.addEventListener('scroll', ()=>{
             let x = window.scrollY;
             console.log(x)
-            if(x > 20){
+            if(x > 200){
                 headerMenu.classList.add('fixed')
             }else{
                 headerMenu.classList.remove('fixed')
