@@ -269,6 +269,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 .header__menu{
   background-color: #1d3551;
+  transition: 0.5s ease all;
 }
 
 .header__menu .header__container-wrapper {
@@ -466,6 +467,16 @@ h1,h2,h3,h4,h5,h6,strong,b{
 	content: '\f017';
 	font-family: fontawesome;
 	margin-right: 4px;
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--black-color);
+  z-index: 99;
+  animation: slide-down 0.2s;
 }
 
 
@@ -847,7 +858,6 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 .blog__pager{
   overflow: hidden;
-  clear: both;
   margin-bottom: 30px;
 }
 
@@ -878,7 +888,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 .blog__pager .page__num.page-next::before{
   content: '\f105';
-  font-family: fontAwesome;
+  font-family: fontawesome;
 }
 
 
@@ -995,6 +1005,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 .popular-posts .post{
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .popular-posts .post-img-link{
@@ -1263,31 +1274,30 @@ h1,h2,h3,h4,h5,h6,strong,b{
     .topbar__wrapper {
       display: none;
     }
-    .header__menu.fixed{
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      transition: all .3s;
-      z-index: 99;
-    }
     .header__menu .content__wrapper {
       padding: 0;
     }
     .header__wrapper .main-menu {
-      visibility: hidden;
+      display: none;
       position: absolute;
       top: 48px;
       left: 0;
       right: 0;
       height: auto;
       background: #000;
-      transition: all .3s;
       padding: 0 15px;
       z-index: 9999;
+      /* visibility: hidden;
+      opacity: 0;
+      transform-origin: 0 0;
+      transform: scaleY(0); */
+      transition: all .17s ease;
     }
     .header__wrapper .main-menu.active{
-      visibility: visible;
+      display: block;
+      /* visibility: visible;
+      opacity: 1;
+      transform: scaleY(1); */
     }
     .btn-nav {
       display: block;
@@ -1395,6 +1405,10 @@ h1,h2,h3,h4,h5,h6,strong,b{
 /* -------------------------------------------------------------------------- */
 /*                                 Animations CSS                                 */
 /* -------------------------------------------------------------------------- */
+.has-fade {
+  visibility: hidden;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1417,8 +1431,8 @@ h1,h2,h3,h4,h5,h6,strong,b{
 }
 
 .fadeIn {
-  -webkit-animation: fadeIn 300ms ease-out;
-          animation: fadeIn 300ms ease-out;
+  -webkit-animation: fadeIn 300ms forwards;
+          animation: fadeIn 300ms forwards;
 }
 
 @keyframes fadeOut {
@@ -1443,6 +1457,59 @@ h1,h2,h3,h4,h5,h6,strong,b{
 }
 
 .fadeOut {
-  -webkit-animation: fadeOut 300ms ease-out;
-          animation: fadeOut 300ms ease-out;
+  -webkit-animation: fadeOut 300ms forwards;
+          animation: fadeOut 300ms forwards;
+}
+
+
+@keyframes fadeInX {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  1% {
+    opacity: 0;
+    visibility: visible;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}
+
+.fadeInX {
+  -webkit-animation: fadeInX 300ms forwards;
+          animation: fadeInX 300ms forwards;
+}
+
+@keyframes fadeOutX {
+  from {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  1% {
+    opacity: 0;
+    visibility: visible;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.fadeOutX {
+  -webkit-animation: fadeOutX 300ms backwards;
+          animation: fadeOutX 300ms backwards;
 }
