@@ -1,2 +1,1 @@
-# sora
-**Sora Bloger Template **
+# Sora Bloger Template 
