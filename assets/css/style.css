@@ -548,6 +548,11 @@ h1,h2,h3,h4,h5,h6,strong,b{
   font-family: fontawesome;
 }
 
+.header__menu.nav-active .btn-nav::after{
+  content: "\f00d";
+  font-family: fontawesome;
+}
+
 .search__bar-wrapper.active{
   display: block;
 }
@@ -1360,6 +1365,9 @@ h1,h2,h3,h4,h5,h6,strong,b{
 }
 
 @media (max-width:768px){
+  .main__content-wrapper {
+    margin-top: 15px;
+  }
   .hot__item, .hot__item-1, .hot__item-2 {
     width: 100%;
     margin-bottom: 10px;
@@ -1385,7 +1393,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
   .footer__bottom .footer-links {
     width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 10px;
     position: relative;
     display: block;
   }
