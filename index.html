@@ -598,15 +598,15 @@
         <div class="footer__bottom">
             <div class="content__wrapper">
                 <div class="container">
-                    <div class="copyright-area">
-                        <p>&copy; Copyright 2023 <a href="#" class="link">csdip</a></p>
-                    </div>
                     <div class="footer-links">
                         <ul>
                             <li><a href="#">Home</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact us</a></li>
                         </ul>
+                    </div>
+                    <div class="copyright-area">
+                        <p>&copy; Copyright <span class="year"></span> <a href="#" class="link">csdip</a></p>
                     </div>
                     <div class="clear-fix"></div>
                 </div>
@@ -615,6 +615,10 @@
     </footer>
 
     <script type="text/javascript">
+        let check = 0;
+        let date = new Date();
+        let year = date.getFullYear();
+        let copyrightYear = document.querySelector('.year');
         let mainMenu = document.querySelector('.main-menu');
         let headerMenu = document.querySelector('.header__menu');
         let dropdowns = document.querySelectorAll('.dropdown');
@@ -622,18 +626,19 @@
         let searchBtn = document.querySelector('.btn-search');
         let searchBtnClose = document.querySelector('.btn-close');
         let navBtn = document.querySelector('.btn-nav');
-        let check = 0;
 
         navBtn.addEventListener('click', (e)=>{
             if(check == 0){
                 mainMenu.classList.add('active')
                 mainMenu.classList.add('fadeIn')
                 mainMenu.classList.remove('fadeOut')
+                headerMenu.classList.add('nav-active')
                 check = 1
             }else{
                 mainMenu.classList.remove('active')
                 mainMenu.classList.remove('fadeIn')
                 mainMenu.classList.add('fadeOut')
+                headerMenu.classList.remove('nav-active')
                 check = 0
             }
         })
@@ -666,6 +671,7 @@
             }
         })
 
+        copyrightYear.innerText = year;
     </script>
 </body>
 </html>
