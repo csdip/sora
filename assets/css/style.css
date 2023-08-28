@@ -1263,6 +1263,14 @@ h1,h2,h3,h4,h5,h6,strong,b{
     .topbar__wrapper {
       display: none;
     }
+    .header__menu.fixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: all .3s;
+      z-index: 99;
+    }
     .header__menu .content__wrapper {
       padding: 0;
     }
@@ -1274,6 +1282,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
       right: 0;
       height: auto;
       background: #000;
+      transition: all .3s;
       padding: 0 15px;
       z-index: 9999;
     }
