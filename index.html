@@ -40,8 +40,10 @@
             <div class="content__wrapper">
                 <div class="container">
                     <div class="main__wrapper">
-                        <a href="#" class="logo"><img src="assets/img/Sora-seo-2.png" alt="logo-img" class="logo-img"></a>
-                        <a href="#" class="ads header-ads">Responsive Ad</a>
+                        <a href="#" class="logo logo-desktop"><img src="assets/img/Sora-seo-2.png" alt="logo-img" class="logo-img"></a>
+                        <div class="header__ads-wrapper">
+                            <a href="#" class="ads header-ads">Responsive Ad</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,15 +52,107 @@
         <div class="header__menu">
             <div class="content__wrapper">
                 <div class="container">
-                        <div class="header__wrapper">
+                    <div class="header__container-wrapper">
+                        <button type="button" class="btn-search"></button>
                         <ul class="main-menu">
                             <li class="home"><a href="#"></a></li>
-                            <li class="dropdown"><a href="#">Features</a></li>
-                            <li class="dropdown"><a href="#">Mega Menu</a></li>
-                            <li class="dropdown"><a href="#">Dropdown</a></li>
-                            <li><a href="#">Documentation</a></li>
+                            <li class="dropdown"><a href="#">Features</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Multi Dropdown</a></li>
+                                    <li><a href="#">Short codes</a></li>
+                                    <li><a href="#">Site map</a></li>
+                                    <li><a href="#">Error page</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown mega-menu"><a href="#">Mega Menu</a>
+                                <ul class="sub-menu mega__menu-inner">
+                                    <div class="mega__menu-wrapper">
+                                        <div class="mega-item">
+                                            <div class="post-img-wrap">
+                                                <a href="#" class="post-img-link">
+                                                    <img src="assets/img/TY Image (1).jpg" alt="post-thumb" class="post-thumb">
+                                                </a>
+                                                <span class="post-tag">Technology</span>
+                                            </div>
+                                            <div class="post-info">
+                                                <h2 class="post-title"><a href="#">How a good team can positively influence your business</a></h2>
+                                                <div class="post-meta">
+                                                    <span class="post-date">May 28, 2020</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-item">
+                                            <div class="post-img-wrap">
+                                                <a href="#" class="post-img-link">
+                                                    <img src="assets/img/TY Image (1).jpg" alt="post-thumb" class="post-thumb">
+                                                </a>
+                                                <span class="post-tag">Technology</span>
+                                            </div>
+                                            <div class="post-info">
+                                                <h2 class="post-title"><a href="#">How a good team can positively influence your business</a></h2>
+                                                <div class="post-meta">
+                                                    <span class="post-date">May 28, 2020</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-item">
+                                            <div class="post-img-wrap">
+                                                <a href="#" class="post-img-link">
+                                                    <img src="assets/img/TY Image (1).jpg" alt="post-thumb" class="post-thumb">
+                                                </a>
+                                                <span class="post-tag">Technology</span>
+                                            </div>
+                                            <div class="post-info">
+                                                <h2 class="post-title"><a href="#">How a good team can positively influence your business</a></h2>
+                                                <div class="post-meta">
+                                                    <span class="post-date">May 28, 2020</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-item">
+                                            <div class="post-img-wrap">
+                                                <a href="#" class="post-img-link">
+                                                    <img src="assets/img/TY Image (1).jpg" alt="post-thumb" class="post-thumb">
+                                                </a>
+                                                <span class="post-tag">Technology</span>
+                                            </div>
+                                            <div class="post-info">
+                                                <h2 class="post-title"><a href="#">How a good team can positively influence your business</a></h2>
+                                                <div class="post-meta">
+                                                    <span class="post-date">May 28, 2020</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mega-item">
+                                            <div class="post-img-wrap">
+                                                <a href="#" class="post-img-link">
+                                                    <img src="assets/img/TY Image (1).jpg" alt="post-thumb" class="post-thumb">
+                                                </a>
+                                                <span class="post-tag">Technology</span>
+                                            </div>
+                                            <div class="post-info">
+                                                <h2 class="post-title"><a href="#">How a good team can positively influence your business</a></h2>
+                                                <div class="post-meta">
+                                                    <span class="post-date">May 28, 2020</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#">Documentation</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Web Documentation</a></li>
+                                    <li><a href="#">Video Documentation</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Download this template</a></li>
                             <div class="clear-fix"></div>
                         </ul>
+                        <div class="search__bar-wrapper">
+                            <button type="button" class="btn-close"></button>
+                            <input type="search" name="search" class="search-bar" placeholder="Search this blog">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -508,5 +602,25 @@
             </div>
         </div>
     </footer>
+
+    <script type="text/javascript">
+        let dropdowns = document.querySelectorAll('.dropdown');
+        let searchBar = document.querySelector('.search__bar-wrapper');
+        let searchBtn = document.querySelector('.btn-search');
+        let searchBtnClose = document.querySelector('.btn-close');
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', ()=>{
+                dropdown.classList.toggle('active')
+            })
+        });
+
+        searchBtn.addEventListener('click', ()=>{
+            searchBar.classList.add('active')
+        })
+        searchBtnClose.addEventListener('click', ()=>{
+            searchBar.classList.remove('active')
+        })
+    </script>
 </body>
 </html>
