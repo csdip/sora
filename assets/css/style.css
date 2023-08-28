@@ -238,13 +238,13 @@ h1,h2,h3,h4,h5,h6,strong,b{
   overflow: hidden;
 }
 
-.header__wrapper .logo{
-  display: block;
-  float: left;
-  width: auto;
-  max-width: 240px;
-  max-height: 60px;
-  padding: 15px 0;
+.header__wrapper .logo {
+	display: block;
+	float: left;
+	width: auto;
+	max-width: 240px;
+	max-height: 60px;
+	padding: 22px 0;
 }
 
 .header__menu .logo-mobile{
@@ -343,6 +343,21 @@ h1,h2,h3,h4,h5,h6,strong,b{
   z-index: 99;
 }
 
+.header__menu .main-menu .sub-menu2{
+  display: none;
+  position: absolute;
+  width: 180px;
+  top: -2px;
+  left: 100%;
+  border-top: 2px solid var(--primary-color);
+  background-color: var(--secondary-color);
+  z-index: 99;
+}
+
+.header__menu .main-menu .sub-menu .drop-down.active .sub-menu2{
+  display: block;
+}
+
 .header__menu .main-menu .sub-menu li{
   width: 100%;
   border-bottom: 1px solid rgb(33, 33, 33);
@@ -359,12 +374,16 @@ h1,h2,h3,h4,h5,h6,strong,b{
   text-transform: capitalize;
 }
 
-.header__menu .main-menu li.active .sub-menu{
+.header__menu .main-menu li.active > .sub-menu{
   display: block;
 }
 
 .header__menu .main-menu .mega-menu{
   position: static;
+}
+
+.header__menu .main-menu .mega-menu-mobile{
+  display: none;
 }
 
 .header__menu .main-menu .mega-menu .mega__menu-inner {
@@ -1197,7 +1216,6 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 
 
-
 /* -------------------------------------------------------------------------- */
 /*                                 Media CSS                                 */
 /* -------------------------------------------------------------------------- */
@@ -1245,8 +1263,11 @@ h1,h2,h3,h4,h5,h6,strong,b{
     .topbar__wrapper {
       display: none;
     }
+    .header__menu .content__wrapper {
+      padding: 0;
+    }
     .header__wrapper .main-menu {
-      display: none;
+      visibility: hidden;
       position: absolute;
       top: 48px;
       left: 0;
@@ -1257,7 +1278,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
       z-index: 9999;
     }
     .header__wrapper .main-menu.active{
-      display: block;
+      visibility: visible;
     }
     .btn-nav {
       display: block;
@@ -1296,8 +1317,11 @@ h1,h2,h3,h4,h5,h6,strong,b{
       width: 100%;
       border-top: 1px solid rgb(33, 33, 33);
     }
-    .header__menu .main-menu .mega-menu{
+    .header__menu .main-menu .mega-menu-desktop{
       display: none;
+    }
+    .header__menu .main-menu .mega-menu-mobile{
+      display: block;
     }
     .header__menu .main-menu .sub-menu li {
       border-bottom: none;
@@ -1355,4 +1379,61 @@ h1,h2,h3,h4,h5,h6,strong,b{
     margin-left: 0;
   }
   
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Animations CSS                                 */
+/* -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  1% {
+    opacity: 0;
+    visibility: visible;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 300ms ease-out;
+          animation: fadeIn 300ms ease-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  1% {
+    opacity: 0;
+    visibility: visible;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+
+.fadeOut {
+  -webkit-animation: fadeOut 300ms ease-out;
+          animation: fadeOut 300ms ease-out;
 }
