@@ -61,13 +61,20 @@
                             <li class="home-mobile"><a href="#">Home</a></li>
                             <li class="dropdown"><a href="#">Features</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Multi Dropdown</a></li>
+                                    <li class="dropdown"><a href="#">Multi Dropdown</a>
+                                        <ul class="sub-menu2">
+                                            <li><a href="#">Dropdown 1</a></li>
+                                            <li><a href="#">Dropdown 2</a></li>
+                                            <li><a href="#">Dropdown 3</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="#">Short codes</a></li>
-                                    <li><a href="#">Site map</a></li>
+                                    <li><a href="youtube.com">Site map</a></li>
                                     <li><a href="#">Error page</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown mega-menu"><a href="#">Mega Menu</a>
+                            <li class="mega-menu mega-menu-mobile"><a href="#">Mega Menu</a>
+                            <li class="dropdown mega-menu mega-menu-desktop"><a href="#">Mega Menu</a>
                                 <ul class="sub-menu mega__menu-inner">
                                     <div class="mega__menu-wrapper">
                                         <div class="mega-item">
@@ -614,9 +621,20 @@
         let searchBtn = document.querySelector('.btn-search');
         let searchBtnClose = document.querySelector('.btn-close');
         let navBtn = document.querySelector('.btn-nav');
+        let check = 0;
 
         navBtn.addEventListener('click', ()=>{
-            mainMenu.classList.toggle('active')
+            if(check == 0){
+                mainMenu.classList.add('active')
+                mainMenu.classList.add('fadeIn')
+                mainMenu.classList.remove('fadeOut')
+                check = 1
+            }else{
+                mainMenu.classList.remove('active')
+                mainMenu.classList.remove('fadeIn')
+                mainMenu.classList.add('fadeOut')
+                check = 0
+            }
         })
 
         dropdowns.forEach(dropdown => {
@@ -626,6 +644,7 @@
         });
 
         searchBtn.addEventListener('click', ()=>{
+            console.log('clicked')
             searchBar.classList.add('active')
         })
         searchBtnClose.addEventListener('click', ()=>{
