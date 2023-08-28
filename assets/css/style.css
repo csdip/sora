@@ -247,6 +247,10 @@ h1,h2,h3,h4,h5,h6,strong,b{
   padding: 15px 0;
 }
 
+.header__menu .logo-mobile{
+  display: none;
+}
+
 .header__wrapper .logo .logo-img{
   width: 100%;
 }
@@ -297,6 +301,10 @@ h1,h2,h3,h4,h5,h6,strong,b{
   font-family: fontawesome;
   margin-left: 5px;
   transition: .3s;
+}
+
+.header__menu .main-menu .home-mobile{
+  display: none;
 }
 
 .header__menu .main-menu li.home{
@@ -477,6 +485,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
   width: 48px;
   height: 48px;
   line-height: 48px;
+  font-size: 16px;
   text-align: center;
   border: none;
   outline: none;
@@ -1218,10 +1227,26 @@ h1,h2,h3,h4,h5,h6,strong,b{
     .header__wrapper .logo-desktop{
       display: none;
     }
+    .header__menu .logo-mobile{
+      display: block;
+    }
+    .header__menu .logo-mobile {
+      display: block;
+      max-width: 150px;
+      float: none;
+      margin: 0 auto;
+      width: 150px;
+      padding: 5px 0;
+    }
+    .header__wrapper .logo .logo-img {
+      width: 100%;
+      margin-top: 2px;
+    }
     .topbar__wrapper {
       display: none;
     }
     .header__wrapper .main-menu {
+      display: none;
       position: absolute;
       top: 48px;
       left: 0;
@@ -1231,6 +1256,9 @@ h1,h2,h3,h4,h5,h6,strong,b{
       padding: 0 15px;
       z-index: 9999;
     }
+    .header__wrapper .main-menu.active{
+      display: block;
+    }
     .btn-nav {
       display: block;
       border-right: 1px solid rgb(33, 33, 33);
@@ -1238,12 +1266,24 @@ h1,h2,h3,h4,h5,h6,strong,b{
     .btn-search, .btn-close {
       border-left: 1px solid rgb(33, 33, 33);
     }
+    .btn-search, .btn-close, .btn-nav{
+      border-bottom: 1px solid rgb(33, 33, 33);
+    }
+    .header__menu .header__container-wrapper{
+      border-bottom: 1px solid rgb(33, 33, 33);
+    }
     .header__menu .main-menu li.home {
       display: none;
+    }
+    .header__menu .main-menu .home-mobile{
+      display: block;
     }
     .header__menu .main-menu li {
       width: 100%;
       border-top: 1px solid rgb(33, 33, 33);
+    }
+    .header__menu .main-menu .home-mobile{
+      border-top: none;
     }
     .header__menu .main-menu li:first-child{
       border-top: none;
