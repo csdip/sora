@@ -615,7 +615,6 @@
     </footer>
 
     <script type="text/javascript">
-        let check = 0;
         let date = new Date();
         let year = date.getFullYear();
         let copyrightYear = document.querySelector('.year');
@@ -626,18 +625,21 @@
         let searchBtn = document.querySelector('.btn-search');
         let searchBtnClose = document.querySelector('.btn-close');
         let navBtn = document.querySelector('.btn-nav');
+        let check = 0;
 
-        navBtn.addEventListener('click', (e)=>{
+        navBtn.addEventListener('click', ()=>{
             if(check == 0){
                 mainMenu.classList.add('active')
                 mainMenu.classList.add('fadeIn')
                 mainMenu.classList.remove('fadeOut')
+                
                 headerMenu.classList.add('nav-active')
                 check = 1
             }else{
                 mainMenu.classList.remove('active')
-                mainMenu.classList.remove('fadeIn')
                 mainMenu.classList.add('fadeOut')
+                mainMenu.classList.remove('fadeIn')
+            
                 headerMenu.classList.remove('nav-active')
                 check = 0
             }
