@@ -55,9 +55,10 @@
                     <div class="header__container-wrapper">
                         <button type="button" class="btn-nav"></button>
                         <button type="button" class="btn-search"></button>
+                        <a href="#" class="logo logo-mobile"><img src="assets/img/Sora-seo-2.png" alt="logo-img" class="logo-img"></a>
                         <ul class="main-menu">
                             <li class="home"><a href="#"></a></li>
-                            <li><a href="#">Home</a></li>
+                            <li class="home-mobile"><a href="#">Home</a></li>
                             <li class="dropdown"><a href="#">Features</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Multi Dropdown</a></li>
@@ -607,10 +608,16 @@
     </footer>
 
     <script type="text/javascript">
+        let mainMenu = document.querySelector('.main-menu');
         let dropdowns = document.querySelectorAll('.dropdown');
         let searchBar = document.querySelector('.search__bar-wrapper');
         let searchBtn = document.querySelector('.btn-search');
         let searchBtnClose = document.querySelector('.btn-close');
+        let navBtn = document.querySelector('.btn-nav');
+
+        navBtn.addEventListener('click', ()=>{
+            mainMenu.classList.toggle('active')
+        })
 
         dropdowns.forEach(dropdown => {
             dropdown.addEventListener('click', ()=>{
