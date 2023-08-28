@@ -278,6 +278,11 @@ h1,h2,h3,h4,h5,h6,strong,b{
 	height: 48px;
 }
 
+.header__menu .main-menu{
+  position: relative;
+  z-index: 9;
+}
+
 .header__menu .main-menu li{
   display: block;
   position: relative;
@@ -296,14 +301,14 @@ h1,h2,h3,h4,h5,h6,strong,b{
   transition: .3s;
 }
 
-.header__menu .main-menu li.dropdown > a::after{
-  content: '\f107';
-  font-size: 10px;
-  font-family: fontawesome;
-  margin-left: 5px;
-  transition: .3s;
+.header__menu .main-menu li.dropdown > a::after {
+	content: '\f107';
+	float: right;
+	font-size: 10px;
+	font-family: fontawesome;
+	margin-left: 5px;
+	transition: .3s;
 }
-
 .header__menu .main-menu .home-mobile{
   display: none;
 }
@@ -494,6 +499,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
   left: 0;
   width: 100%;
   height: 48px;
+  z-index: 99;
   background-color: var(--secondary-color);
 }
 
@@ -1413,10 +1419,6 @@ h1,h2,h3,h4,h5,h6,strong,b{
 /* -------------------------------------------------------------------------- */
 /*                                 Animations CSS                                 */
 /* -------------------------------------------------------------------------- */
-.has-fade {
-  visibility: hidden;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1450,16 +1452,16 @@ h1,h2,h3,h4,h5,h6,strong,b{
     transform: scaleY(1);
     transform-origin: top;
   }
-  1% {
-    opacity: 0;
-    visibility: visible;
-    transform: scaleY(0);
+  99% {
+    opacity: 1;
+    visibility: hidden;
+    transform: scaleY(1);
     transform-origin: top;
   }
   to {
-    opacity: 0;
-    visibility: hidden;
-    transform: scaleY(0);
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
     transform-origin: top;
   }
 }
