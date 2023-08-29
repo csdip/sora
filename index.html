@@ -614,6 +614,7 @@
         </div>
     </footer>
 
+    <script src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript">
         let date = new Date();
         let year = date.getFullYear();
@@ -627,23 +628,24 @@
         let navBtn = document.querySelector('.btn-nav');
         let check = 0;
 
-        navBtn.addEventListener('click', ()=>{
-            if(check == 0){
-                mainMenu.classList.add('active')
-                mainMenu.classList.add('fadeIn')
-                mainMenu.classList.remove('fadeOut')
-                
-                headerMenu.classList.add('nav-active')
-                check = 1
+        window.addEventListener('resize', ()=>{
+            if(window.innerWidth < 992){
+                mainMenu.classList.add('mobile-menu')
             }else{
-                mainMenu.classList.remove('active')
-                mainMenu.classList.add('fadeOut')
-                mainMenu.classList.remove('fadeIn')
-            
-                headerMenu.classList.remove('nav-active')
-                check = 0
+                mainMenu.classList.remove('mobile-menu')
             }
         })
+        
+        $(document).ready(function(){
+            $('.btn-nav').click(function(){
+                $('.mobile-menu').slideToggle(300, function(){
+                    console.log('clicked')
+                })
+            })
+        })
+
+
+
 
         dropdowns.forEach(dropdown => {
             dropdown.addEventListener('click', ()=>{
@@ -666,10 +668,14 @@
         window.addEventListener('scroll', ()=>{
             let x = window.scrollY;
             console.log(x)
-            if(x > 200){
+            if(x > 180){
                 headerMenu.classList.add('fixed')
+                headerMenu.classList.add('fadeIn')
+                headerMenu.classList.remove('fadeOut')
             }else{
                 headerMenu.classList.remove('fixed')
+                headerMenu.classList.remove('fadeIn')
+                headerMenu.classList.add('fadeOut')
             }
         })
 
