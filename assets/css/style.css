@@ -362,7 +362,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
   z-index: 99;
 }
 
-.header__menu .main-menu .sub-menu .drop-down.active .sub-menu2{
+.header__menu .main-menu .sub-menu .dropdown.active .sub-menu2{
   display: block;
 }
 
@@ -508,6 +508,12 @@ h1,h2,h3,h4,h5,h6,strong,b{
   outline: none;
 }
 
+.search-bar:active, .search-bar:focus{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
 .btn-search, .btn-close, .btn-nav{
   position: absolute;
   display: block;
@@ -577,17 +583,23 @@ h1,h2,h3,h4,h5,h6,strong,b{
   float: left;
 }
 
-.header__menu .mobile-menu li a{
+.header__menu .mobile-menu li a, .header__menu .mobile-menu li span{
   display: block;
   float: left;
+  width: 100%;
   height: 48px;
   line-height: 48px;
   font-size: 13px;
   font-weight: 700;
   color: var(--white-color);
   text-transform: uppercase;
-  padding: 0 15px;
   transition: .3s;
+}
+
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown span {
+	font-weight: 400;
+	text-transform: capitalize;
+	padding-left: 10px;
 }
 
 .header__menu .mobile-menu .home-mobile{
@@ -614,8 +626,8 @@ h1,h2,h3,h4,h5,h6,strong,b{
   font-family: fontawesome;
 }
 
-.header__menu .mobile-menu li:hover > a, .header__menu .mobile-menu li.active > a{
-  background-color: var(--primary-color);
+.header__menu .mobile-menu li:hover > a, .header__menu .mobile-menu .dropdown.active > span{
+  color: var(--primary-color);
 }
 
 .header__menu .mobile-menu .dropdown-btn {
@@ -630,30 +642,72 @@ h1,h2,h3,h4,h5,h6,strong,b{
   transition: .3s;
 }
 
-.header__menu .mobile-menu .dropdown-btn:hover{
+.header__menu .mobile-menu .dropdown span:hover{
   color: var(--primary-color);
+  cursor: pointer;
+}
+
+.header__menu .mobile-menu .dropdown > span::after {
+  content: '\f107';
+  float: right;
+  font-size: 10px;
+  font-family: fontawesome;
+  margin-left: 5px;
+  transition: .3s;
+}
+
+.header__menu .mobile-menu .dropdown.active > span::after {
+  content: '\f107';
+  transform: rotate(180deg);
 }
 
 .header__menu .mobile-menu .sub-menu{
-  display: none;
   position: absolute;
   width: 180px;
   top: 48px;
   left: 0;
   border-top: 2px solid var(--primary-color);
   background-color: var(--secondary-color);
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top;
+  transform: translateY(0);
+  transition: .3s;
   z-index: 99;
 }
 
-.header__menu .mobile-menu .sub-menu2{
-  display: none;
-  position: absolute;
-  width: 180px;
-  top: -2px;
-  left: 100%;
-  border-top: 2px solid var(--primary-color);
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown .sub-menu2{
+  position: static;
+  width: 100%;
+  top: 0;
+  left: 0;
   background-color: var(--secondary-color);
   z-index: 99;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top;
+  transform: translateY(0);
+  transition: .3s;
+}
+
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown.active .sub-menu2{
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  transform-origin: top;
+  transform: translateY(1);
+}
+
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown > span::after {
+  transform: rotate(-90deg);
+}
+
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown.active > span::after {
+  transform: rotate(0deg);
 }
 
 .header__menu .mobile-menu .sub-menu li{
@@ -665,15 +719,24 @@ h1,h2,h3,h4,h5,h6,strong,b{
   border-bottom: none;
 }
 
-.header__menu .mobile-menu .sub-menu a{
-  height: 34px;
-  line-height: 34px;
-  font-weight: 400;
-  text-transform: capitalize;
+.header__menu .mobile-menu .sub-menu a {
+	height: 34px;
+	line-height: 34px;
+	font-weight: 400;
+	text-transform: capitalize;
+	padding-left: 10px;
 }
 
-.header__menu .mobile-menu .sub-menu.active{
-  display: block !important;
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown.active .sub-menu2 a {
+	padding-left: 20px;
+}
+
+.header__menu .mobile-menu .dropdown.active .sub-menu {
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+  transform-origin: top;
+  transform: translateY(1);
 }
 
 
@@ -1508,7 +1571,6 @@ h1,h2,h3,h4,h5,h6,strong,b{
   }
   .header__menu .mobile-menu .sub-menu li {
     border-bottom: none;
-    padding-left: 10px;
   }
   .header__menu .mobile-menu li:hover > a, .header__menu .mobile-menu li.active > a{
     background-color: transparent;
