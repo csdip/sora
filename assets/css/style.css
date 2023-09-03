@@ -613,8 +613,6 @@ h1,h2,h3,h4,h5,h6,strong,b{
   text-align: center;
   right: 0;
   cursor: pointer;
-  border-left: 1px solid rgb(33, 33, 33);
-  border-right: 1px solid rgb(33, 33, 33);
   transition: 300ms;
 }
 
@@ -624,13 +622,11 @@ h1,h2,h3,h4,h5,h6,strong,b{
 	top: 0;
 	color: rgb(255, 255, 255);
 	height: 35px;
-  width: 35px;
+  width: 48px;
 	line-height: 35px;
   text-align: center;
   right: 0;
   cursor: pointer;
-  border-left: 1px solid rgb(33, 33, 33);
-  border-right: 1px solid rgb(33, 33, 33);
   transition: 300ms;
 }
 
@@ -682,7 +678,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
 }
 
 .header__menu .mobile-menu .dropdown.active > i::before{
-  content: "\f106";
+  content: "\f107";
 }
 
 .header__menu .mobile-menu .sub-menu .dropdown.active > i::before{
@@ -714,7 +710,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
   visibility: hidden;
   transform-origin: top;
   transform: scaleY(0);
-  transition: 300ms;
+  transition: 1000ms;
   z-index: 99;
 }
 
@@ -742,6 +738,7 @@ h1,h2,h3,h4,h5,h6,strong,b{
 	font-weight: 400;
 	text-transform: capitalize;
 	padding-left: 10px;
+  color: #757575;
 }
 
 .header__menu .mobile-menu .sub-menu-right a {
