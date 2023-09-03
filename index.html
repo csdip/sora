@@ -59,10 +59,14 @@
                         <ul class="main-menu">
                             <li class="home"><a href="#"></a></li>
                             <li class="home-mobile"><a href="#">Home</a></li>
-                            <li class="dropdown"><a href="#">Features</a>
+                            <li class="dropdown">
+                                <a href="#">Features</a>
+                                <i class="fa-solid fa-angle-down"></i>
                                 <ul class="sub-menu">
-                                    <li class="dropdown"><a href="#">Multi Dropdown</a>
-                                        <ul class="sub-menu2">
+                                    <li class="dropdown">
+                                        <a href="#">Multi Dropdown</a>
+                                        <i class="fa-solid fa-angle-right"></i>
+                                        <ul class="sub-menu sub-menu-right">
                                             <li><a href="#">Dropdown 1</a></li>
                                             <li><a href="#">Dropdown 2</a></li>
                                             <li><a href="#">Dropdown 3</a></li>
@@ -73,7 +77,9 @@
                                     <li><a href="#">Error page</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown mega-menu"><a href="#">Mega Menu</a>
+                            <li class="dropdown mega-menu">
+                                <a href="#">Mega Menu</a>
+                                <i class="fa-solid fa-angle-down"></i>
                                 <ul class="sub-menu mega__menu-inner">
                                     <div class="mega__menu-wrapper">
                                         <div class="mega-item">
@@ -150,7 +156,9 @@
                                     </div>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Documentation</a>
+                            <li class="dropdown">
+                                <a href="#">Documentation</a>
+                                <i class="fa-solid fa-angle-down"></i>
                                 <ul class="sub-menu">
                                     <li><a href="#">Web Documentation</a></li>
                                     <li><a href="#">Video Documentation</a></li>
@@ -161,10 +169,14 @@
                         <ul class="mobile-menu">
                             <li class="home"><a href="#"></a></li>
                             <li class="home-mobile"><a href="#">Home</a></li>
-                            <li class="dropdown"><span>Features</span>
+                            <li class="dropdown">
+                                <a href="#">Features</a>
+                                <i class="fa-solid fa-angle-down"></i>
                                 <ul class="sub-menu">
-                                    <li class="dropdown"><span>Multi Dropdown</span>
-                                        <ul class="sub-menu2">
+                                    <li class="dropdown">
+                                        <a href="#">Multi Dropdown</a>
+                                        <i class="fa-solid fa-angle-right"></i>
+                                        <ul class="sub-menu sub-menu-right">
                                             <li><a href="#">Dropdown 1</a></li>
                                             <li><a href="#">Dropdown 2</a></li>
                                             <li><a href="#">Dropdown 3</a></li>
@@ -176,7 +188,9 @@
                                 </ul>
                             </li>
                             <li class="mega-menu mega-menu-mobile"><a href="#">Mega Menu</a>
-                            <li class="dropdown"><span>Documentation</span>
+                            <li class="dropdown">
+                                <a href="#">Documentation</a>
+                                <i class="fa-solid fa-angle-down"></i>
                                 <ul class="sub-menu">
                                     <li><a href="#">Web Documentation</a></li>
                                     <li><a href="#">Video Documentation</a></li>
@@ -654,44 +668,25 @@
         let searchBtn = document.querySelector('.btn-search');
         let searchBtnClose = document.querySelector('.btn-close');
         let navBtn = document.querySelector('.btn-nav');
-        let check = 0;
 
 
 
         navBtn.addEventListener('click', ()=>{
             mobileMenu.classList.toggle('active')
+            navBtn.classList.toggle('active')
+            
         })
 
-
-
-
-
-        // dropdowns.addEventListener('click', ()=>{
-        //     console.log('clicked')
-        //     subMenu.classList.toggle('active')
-        // })
-
-
-
-
-
-
-
-        dropdowns.forEach(dropdown =>{
-            dropdown.addEventListener('click', ()=>{
-                if(check == 0){
-                    dropdown.classList.add('active')
-                    subMenus.classList.add('active')
-                    subMenus2.classList.add('active')
-                    check = 0
-                }else{
-                    dropdown.classList.remove('active')
-                    subMenus.classList.remove('active')
-                    subMenus2.classList.remove('active')
-                    check = 1
-                }
+        mobileMenu.querySelectorAll('.dropdown > i').forEach((arrow)=>{
+            arrow.addEventListener('click', ()=>{
+                arrow.closest('.dropdown').classList.toggle('active')
             })
         })
+
+
+
+
+
 
 
         searchBtn.addEventListener('click', ()=>{
