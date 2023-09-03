@@ -287,30 +287,44 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 .header__menu .main-menu li{
   display: block;
-  position: relative;
   float: left;
 }
 
-.header__menu .main-menu li a{
-  display: block;
-  height: 48px;
-  line-height: 48px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--white-color);
-  text-transform: uppercase;
-  padding: 0 15px;
-  transition: .3s;
+.header__menu .main-menu .dropdown{
+  position: relative;
 }
 
-.header__menu .main-menu li.dropdown > a::after {
-	content: '\f107';
-	float: right;
-	font-size: 10px;
-	font-family: fontawesome;
-	margin-left: 5px;
+.header__menu .main-menu li a {
+	display: block;
+	height: 48px;
+	line-height: 48px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--white-color);
+	text-transform: uppercase;
+	padding: 0 30px 0 15px;
 	transition: .3s;
 }
+
+.header__menu .main-menu .dropdown > i {
+	font-size: 10px;
+	position: absolute;
+	top: 0;
+	color: white;
+	height: 48px;
+	line-height: 48px;
+  right: 15px;
+}
+.header__menu .main-menu .mega-menu i {
+	left: 255px;
+	width: 9px;
+}
+
+.header__menu .main-menu .dropdown .sub-menu .dropdown > i {
+	height: 33px;
+	line-height: 33px;
+}
+
 .header__menu .main-menu .home-mobile{
   display: none;
 }
@@ -341,18 +355,21 @@ h1,h2,h3,h4,h5,h6,strong,b{
 
 
 .header__menu .main-menu .sub-menu{
-  display: none;
   position: absolute;
   width: 180px;
   top: 48px;
   left: 0;
   border-top: 2px solid var(--primary-color);
   background-color: var(--secondary-color);
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: 300ms;
   z-index: 99;
 }
 
-.header__menu .main-menu .sub-menu2{
-  display: none;
+.header__menu .main-menu .sub-menu-right{
   position: absolute;
   width: 180px;
   top: -2px;
@@ -362,8 +379,10 @@ h1,h2,h3,h4,h5,h6,strong,b{
   z-index: 99;
 }
 
-.header__menu .main-menu .sub-menu .dropdown.active .sub-menu2{
-  display: block;
+.header__menu .main-menu .dropdown:hover > .sub-menu{
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
 }
 
 .header__menu .main-menu .sub-menu li{
@@ -583,7 +602,39 @@ h1,h2,h3,h4,h5,h6,strong,b{
   float: left;
 }
 
-.header__menu .mobile-menu li a, .header__menu .mobile-menu li span{
+.header__menu .mobile-menu .dropdown > i {
+	font-size: 10px;
+	position: absolute;
+	top: 0;
+	color: white;
+	height: 48px;
+  width: 48px;
+	line-height: 48px;
+  text-align: center;
+  right: 0;
+  cursor: pointer;
+  border-left: 1px solid rgb(33, 33, 33);
+  border-right: 1px solid rgb(33, 33, 33);
+  transition: 300ms;
+}
+
+.header__menu .mobile-menu .dropdown .sub-menu .dropdown> i {
+	font-size: 10px;
+	position: absolute;
+	top: 0;
+	color: rgb(255, 255, 255);
+	height: 35px;
+  width: 35px;
+	line-height: 35px;
+  text-align: center;
+  right: 0;
+  cursor: pointer;
+  border-left: 1px solid rgb(33, 33, 33);
+  border-right: 1px solid rgb(33, 33, 33);
+  transition: 300ms;
+}
+
+.header__menu .mobile-menu li a{
   display: block;
   float: left;
   width: 100%;
@@ -626,8 +677,16 @@ h1,h2,h3,h4,h5,h6,strong,b{
   font-family: fontawesome;
 }
 
-.header__menu .mobile-menu li:hover > a, .header__menu .mobile-menu .dropdown.active > span{
+.header__menu .mobile-menu li:hover > a, .header__menu .mobile-menu .dropdown:hover > i, .header__menu .mobile-menu .sub-menu .dropdown:hover > i{
   color: var(--primary-color);
+}
+
+.header__menu .mobile-menu .dropdown.active > i::before{
+  content: "\f106";
+}
+
+.header__menu .mobile-menu .sub-menu .dropdown.active > i::before{
+  content: "\f107";
 }
 
 .header__menu .mobile-menu .dropdown-btn {
@@ -642,73 +701,31 @@ h1,h2,h3,h4,h5,h6,strong,b{
   transition: .3s;
 }
 
-.header__menu .mobile-menu .dropdown span:hover{
-  color: var(--primary-color);
-  cursor: pointer;
-}
-
-.header__menu .mobile-menu .dropdown > span::after {
-  content: '\f107';
-  float: right;
-  font-size: 10px;
-  font-family: fontawesome;
-  margin-left: 5px;
-  transition: .3s;
-}
-
-.header__menu .mobile-menu .dropdown.active > span::after {
-  content: '\f107';
-  transform: rotate(180deg);
-}
-
 .header__menu .mobile-menu .sub-menu{
-  position: absolute;
+  display: none;
+  position: static;
   width: 180px;
   top: 48px;
   left: 0;
   border-top: 2px solid var(--primary-color);
   background-color: var(--secondary-color);
   overflow: hidden;
-  height: 0;
   opacity: 0;
   visibility: hidden;
   transform-origin: top;
-  transform: translateY(0);
-  transition: .3s;
+  transform: scaleY(0);
+  transition: 300ms;
   z-index: 99;
 }
 
-.header__menu .mobile-menu .dropdown .sub-menu .dropdown .sub-menu2{
-  position: static;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--secondary-color);
-  z-index: 99;
-  overflow: hidden;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  transform-origin: top;
-  transform: translateY(0);
-  transition: .3s;
-}
 
-.header__menu .mobile-menu .dropdown .sub-menu .dropdown.active .sub-menu2{
-  height: auto;
+.header__menu .mobile-menu .dropdown.active > .sub-menu {
+  display: block;
   opacity: 1;
   visibility: visible;
-  transform-origin: top;
-  transform: translateY(1);
+  transform: scaleY(1);
 }
 
-.header__menu .mobile-menu .dropdown .sub-menu .dropdown > span::after {
-  transform: rotate(-90deg);
-}
-
-.header__menu .mobile-menu .dropdown .sub-menu .dropdown.active > span::after {
-  transform: rotate(0deg);
-}
 
 .header__menu .mobile-menu .sub-menu li{
   width: 100%;
@@ -727,18 +744,9 @@ h1,h2,h3,h4,h5,h6,strong,b{
 	padding-left: 10px;
 }
 
-.header__menu .mobile-menu .dropdown .sub-menu .dropdown.active .sub-menu2 a {
+.header__menu .mobile-menu .sub-menu-right a {
 	padding-left: 20px;
 }
-
-.header__menu .mobile-menu .dropdown.active .sub-menu {
-  opacity: 1;
-  height: auto;
-  visibility: visible;
-  transform-origin: top;
-  transform: translateY(1);
-}
-
 
 
 
@@ -1526,6 +1534,9 @@ h1,h2,h3,h4,h5,h6,strong,b{
   .btn-nav {
     display: block;
     border-right: 1px solid rgb(33, 33, 33);
+  }
+  .btn-nav.active::after{
+    content: "\f00d";
   }
   .btn-search, .btn-close {
     border-left: 1px solid rgb(33, 33, 33);
